@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyslexia</title>
+</head>
+
+<script>
+    function color() {
+        var x = document.getElementById("l1").value;
+        var l = x.length;
+        var colortime = 0;
+        for (var i = 0; i < l; i++) {
+            var c = x.charAt(i);
+            var code = c.charCodeAt(i); //find code of sukun but the problem is that we cant find the code og the sukun
+            if (code == ' ْ') { //we should find the index of the character of the letter that have the sukun and take it's index and the index of the character before and color them the same color
+                document.getElementById("tl1").innerHTML += "<div style=\" color:green; display:inline;\">" + c + "</div>";
+                colortime++;
+            }
+            if (colortime % 2 == 0) {
+                document.getElementById("tl1").innerHTML += "<div style=\" color:red; display:inline;\">" + c + "</div>";
+                colortime++;
+            } else {
+                document.getElementById("tl1").innerHTML += "<div style=\" color:blue; display:inline;\">" + c + "</div>";
+                colortime++;
+            }
+
+        }
+    }
+</script>
+
+<body>
+    <form>
+        <br> Text:
+        <input type="text" id="l1" placeholder="Enter text">
+        <br>
+        <input type="button" onclick="color()" id="bl1" value="Submit">
+    </form>
+    <br><br><br>
+    <h1>
+        <div id="tl1"> </div>
+    </h1>
+
+</body>
+
+</html>
